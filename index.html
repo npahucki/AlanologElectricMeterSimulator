@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <script src="./gauge.min.js"></script>
+    <script src="./index.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            text-align: center;
+            font-size: 30px;
+            width: 260px;
+            letter-spacing: 1em;
+        }
+
+        .gauge-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: white;
+        }
+
+        .canvas-container {
+            flex:1 1 20%;
+            width: 20%;
+         }
+
+        canvas {
+            transform: rotate(180deg);
+        }
+
+        .input-container {
+            padding-top: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: white;
+        }
+
+    </style>
+
+  </head>
+
+  <body onload="initGauges();">
+    <h1>Jimbo Meter 1.0</h1>
+    <h2>Kilowatthours</h2>
+    <div id="gauges" class="gauge-container">
+      <div class="canvas-container"><canvas id="canvas-preview-0" class="clockwise" ></canvas></div>
+      <div class="canvas-container"><canvas id="canvas-preview-1" class="counter-clockwise" ></canvas></div>
+      <div class="canvas-container"><canvas id="canvas-preview-2" class="clockwise" ></canvas></div>
+      <div class="canvas-container"><canvas id="canvas-preview-3" class="counter-clockwise" ></canvas></div>
+      <div class="canvas-container"><canvas id="canvas-preview-4" class="clockwise" ></canvas></div>
+    </div>
+    <div class="input-container">
+      <input
+          class="input"
+          name="input"
+          id="input"
+          type="text"
+          inputmode="numeric"
+          value=""
+          pattern="[0-9]{5}"
+          maxlength="5"
+          oninput="onInputChanged(this)"
+          onfocus="this.value=''"
+      />
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+  </body>
+</html>
